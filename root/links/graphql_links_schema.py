@@ -1,11 +1,7 @@
 from .graphql_links_create_mutation import CreateLink
+from .graphql_links_types import LinkType
 from .models import Link
-from graphene_django import DjangoObjectType
 import graphene
-
-class LinkType(DjangoObjectType):
-    class Meta:
-        model = Link
 
 class Query(graphene.ObjectType):
     links = graphene.List(LinkType)

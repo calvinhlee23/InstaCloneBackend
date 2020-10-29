@@ -1,6 +1,6 @@
-from users.graphql_users_create_mutation import CreateUser
+from .graphql_users_types import UserType
 from django.contrib.auth import get_user_model
-from .graphql_users_type import UserType
+from users.graphql_users_create_mutation import CreateUser
 import graphene
 
 class Query(graphene.ObjectType):

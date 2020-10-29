@@ -1,4 +1,4 @@
-from .graphql_users_type import UserType
+from .graphql_users_types import UserType
 from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 import graphene
