@@ -1,9 +1,10 @@
 import graphene
+import links.graphql_links_schema as graphql_links_schema
 
-import links.schema
-
-class Query(links.schema.Query, graphene.ObjectType):
+class Query(graphql_links_schema.Query, graphene.ObjectType):
     pass
 
+class Mutation(graphql_links_schema.Mutation, graphene.ObjectType):
+    pass
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query,  mutation=Mutation)
