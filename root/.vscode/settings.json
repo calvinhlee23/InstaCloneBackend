@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/speedymacos/projects/coding/insta-clone/backend/env/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
