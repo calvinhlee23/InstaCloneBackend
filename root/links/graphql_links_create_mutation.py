@@ -1,6 +1,6 @@
 from .models import Link
 from graphene_django import DjangoObjectType
-from users.schema import UserType
+from users.graphql_users_types import UserType
 import graphene
 
 class CreateLink(graphene.Mutation):
@@ -13,12 +13,14 @@ class CreateLink(graphene.Mutation):
         url = graphene.String()
         description = graphene.String()
 
-    def mutate(self, info, description, url, user):
+    def mutate(self, info, description, url):
+        user = info.context.user or None
         link = Link(description=description, posted_by=user, url=url)
         link.save()
+
         return CreateLink(
             id=link.id,
             url=link.url,
             description=link.description,
-            posted_by=graphene.Field(UserType)
+            posted_by=link.posted_by
         )
