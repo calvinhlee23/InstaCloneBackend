@@ -1,4 +1,4 @@
-import graphene
+from graphene import ObjectType, relay, Schema
 import graphql_jwt
 import links.graphql_links_schema as graphql_links_schema
 import users.graphql_users_schema as graphql_users_schema
@@ -16,12 +16,12 @@ mutations = [
     graphql_vote_schema.Mutation,
 ]
 
-class Query(*queries, graphene.ObjectType):
+class Query(*queries, ObjectType):
     pass
 
-class Mutation(*mutations, graphene.ObjectType):
+class Mutation(*mutations, ObjectType):
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()
 
-schema = graphene.Schema(query=Query,  mutation=Mutation)
+schema = Schema(query=Query,  mutation=Mutation)

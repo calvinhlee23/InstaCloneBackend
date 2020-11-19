@@ -1,9 +1,9 @@
 from django.contrib.auth import get_user_model
+from graphene import relay
 from graphene_django import DjangoObjectType
-import graphene
 
 class UserNode(DjangoObjectType):
     class Meta:
         model = get_user_model()
-        interfaces = graphene.relay.Node,
+        interfaces = relay.Node,
         filter_fields = {}

@@ -1,12 +1,12 @@
 from .graphql_users_types import UserNode
 from django.contrib.auth import get_user_model
-from users.graphql_users_create_mutation import CreateUser
+from graphene import ObjectType, relay
 from graphene_django.filter import DjangoFilterConnectionField
-import graphene
+from users.graphql_users_create_mutation import CreateUser
 
-# class Query(graphene.ObjectType):
-#     current_user = graphene.Field(UserType)
-#     users = graphene.List(UserType)
+# class Query(ObjectType):
+#     current_user = Field(UserType)
+#     users = List(UserType)
 
 #     def resolve_users(self, info):
 #         return get_user_model().objects.all()
@@ -17,9 +17,9 @@ import graphene
 #                 raise Exception('No Current User Found')
 #         return user
 
-class RelayQuery(graphene.ObjectType): 
-    user = graphene.relay.Node.Field(UserNode)
+class RelayQuery(ObjectType): 
+    user = relay.Node.Field(UserNode)
     users = DjangoFilterConnectionField(UserNode)
 
-class Mutation(graphene.ObjectType):
+class Mutation(ObjectType):
     create_user = CreateUser.Field()
