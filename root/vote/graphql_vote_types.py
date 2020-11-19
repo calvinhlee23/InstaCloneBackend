@@ -4,7 +4,7 @@ from graphene import relay
 
 class VoteNode(DjangoObjectType):
     class Meta:
-        model = Vote
-        interfaces = relay.Node,
         fields=['link']
         filter_fields = {}
+        interfaces = relay.Node,
+        model = Vote

@@ -1,5 +1,5 @@
+# from django.contrib.auth import get_user_model
 from .graphql_users_types import UserNode
-from django.contrib.auth import get_user_model
 from graphene import ObjectType, relay
 from graphene_django.filter import DjangoFilterConnectionField
 from users.graphql_users_create_mutation import CreateUser

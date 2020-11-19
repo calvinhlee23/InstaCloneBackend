@@ -4,6 +4,6 @@ from graphene_django import DjangoObjectType
 
 class UserNode(DjangoObjectType):
     class Meta:
-        model = get_user_model()
-        interfaces = relay.Node,
         filter_fields = {}
+        interfaces = relay.Node,
+        model = get_user_model()
