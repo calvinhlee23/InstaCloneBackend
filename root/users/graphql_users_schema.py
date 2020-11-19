@@ -21,6 +21,5 @@ class RelayQuery(graphene.ObjectType):
     user = graphene.relay.Node.Field(UserNode)
     users = DjangoFilterConnectionField(UserNode)
 
-
 class Mutation(graphene.ObjectType):
     create_user = CreateUser.Field()
