@@ -1,10 +1,10 @@
-from .graphql_users_types import UserType
+from .graphql_users_types import UserNode
 from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 import graphene
 
 class CreateUser(graphene.Mutation):
-    user = graphene.Field(UserType)
+    user = graphene.Field(UserNode)
 
     class Arguments:
         username = graphene.String(required=True)

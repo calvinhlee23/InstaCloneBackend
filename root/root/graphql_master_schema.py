@@ -13,7 +13,7 @@ queries = [
 mutations = [
     graphql_links_schema.Mutation,
     graphql_users_schema.Mutation, 
-    graphql_vote_schema.Mutation
+    graphql_vote_schema.Mutation,
 ]
 
 class Query(*queries, graphene.ObjectType):

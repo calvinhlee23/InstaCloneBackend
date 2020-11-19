@@ -1,13 +1,13 @@
 from links.models import Link
 from links.graphql_links_schema import CreateLink
 from .models import Vote
-from users.graphql_users_types import UserType
+from users.graphql_users_types import UserNode
 from links.graphql_links_types import LinkNode
 import graphene
 
 
 class CreateVote(graphene.Mutation):
-    user = graphene.Field(UserType)
+    user = graphene.Field(UserNode)
     link = graphene.Field(LinkNode)
 
     class Arguments:
