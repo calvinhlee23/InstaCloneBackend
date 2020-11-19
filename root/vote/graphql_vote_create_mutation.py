@@ -16,15 +16,15 @@ class CreateVote(graphene.Mutation):
     def mutate(self, info, link_id):
         user = info.context.user
         if user.is_anonymous:
-            raise Exception('You must be logged to vote!')
+            raise Exception('User must be logged to vote!')
 
         link = Link.objects.filter(id=link_id).first()
         if not link:
-            raise Exception('Invalid Link!')
+            raise Exception('Link was not found given link_id')
 
         Vote.objects.create(
             user=user,
             link=link,
         )
-        
+
         return CreateVote(user=user, link=link)

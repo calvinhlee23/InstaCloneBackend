@@ -6,7 +6,7 @@ import graphene
 
 class Query(graphene.ObjectType):
     votes = graphene.List(VoteType)
-    def resolve_links(self, info, **kwargs):
+    def resolve_votes(self, info, **kwargs):
         return Vote.objects.all()
         
 class Mutation(graphene.ObjectType):
